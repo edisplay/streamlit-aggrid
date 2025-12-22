@@ -449,8 +449,9 @@ def AgGrid(
         def _inner_callback():
             component_value = st.session_state.get(key)
             # Update the existing response object with new component value and store the wrapped response
-            updated_response = collector.update_response(response, component_value)
-            st.session_state[key] = updated_response
+            
+            #updating the session key causes the callback to trigger always. Hot fix in 1.2.0.post2
+            #st.session_state[key] = updated_response
 
     elif callback and key:
         # User defined callback
@@ -458,7 +459,8 @@ def AgGrid(
             component_value = st.session_state.get(key)
             # Update the existing response object with new component value and store the wrapped response
             updated_response = collector.update_response(response, component_value)
-            st.session_state[key] = updated_response
+            #updating the session key causes the callback to trigger always. Hot fix in 1.2.0.post2
+            #st.session_state[key] = updated_response
             return callback(updated_response)
     else:
         _inner_callback = None

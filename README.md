@@ -59,6 +59,7 @@ Version 1.2.0
  - Deprecates try_to_convert_back_to_original_types, now grid will always try to keep proper datatypes when editing data.
  - Upgrades internal ag-grid to version 34.3.1
  - post1: fixes empty data initialization.
+ - post2: fixes callback triggering multiple times, when other streamlit widgets updates
 
 Version 1.1.9
  - Updates internal grid to 34.2.0
